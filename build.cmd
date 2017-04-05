@@ -13,7 +13,7 @@ SET PACKAGE_DIR=%SOLUTION_DIR%\packages
 
 IF EXIST %CACHED_NUGET% goto copynuget
 echo Downloading latest version of NuGet.exe...
-rem IF NOT EXIST %LocalAppData%\NuGet md %LocalAppData%\NuGet
+#IF NOT EXIST %LocalAppData%\NuGet md %LocalAppData%\NuGet
 @powershell -NoProfile -ExecutionPolicy unrestricted -Command "$ProgressPreference = 'SilentlyContinue'; Invoke-WebRequest 'https://dist.nuget.org/win-x86-commandline/latest/nuget.exe' -OutFile '%CACHED_NUGET%'"
 @powershell -NoProfile -ExecutionPolicy unrestricted -Command "$ProgressPreference = 'SilentlyContinue'; Invoke-WebRequest 'https://dist.nuget.org/win-x86-commandline/latest/nuget.exe' -OutFile '%NUGET_DIR%'"
 @powershell -NoProfile -ExecutionPolicy unrestricted -Command "$ProgressPreference = 'SilentlyContinue'; Invoke-WebRequest 'https://dist.nuget.org/win-x86-commandline/latest/nuget.exe' -OutFile '%APPVEYOR_BUILD_FOLDER%'"
@@ -26,11 +26,11 @@ copy %CACHED_NUGET%\.nuget\nuget.exe > nul
 
 :restore
 
-rem %NUGET_DIR%\NuGet.exe update -self
+%NUGET_DIR%\NuGet.exe update -self
 
 pushd %~dp0
 
-rem %NUGET_DIR%\NuGet.exe update -self
+%NUGET_DIR%\NuGet.exe update -self
 
 %NUGET_DIR%\NuGet.exe install FAKE -ConfigFile %NUGET_DIR%\Nuget.Config -OutputDirectory %PACKAGE_DIR% -ExcludeVersion -Version 4.16.1
 %NUGET_DIR%\NuGet.exe install FSharp.Data -ConfigFile %NUGET_DIR%\Nuget.Config -OutputDirectory %PACKAGE_DIR%\FAKE -ExcludeVersion -Version 2.3.2
