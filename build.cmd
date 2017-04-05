@@ -35,8 +35,7 @@ pushd %~dp0
 
 rem cls
 
-msbuild Source\Solutions\Bifrost_All.sln /t:restore & exit 0
-set encoding=utf-8
+msbuild Source\Solutions\Bifrost_All.sln /t:restore & set encoding=utf-8
 %PACKAGE_DIR%\FAKE\tools\FAKE.exe build.fsx %*
 
 popd
