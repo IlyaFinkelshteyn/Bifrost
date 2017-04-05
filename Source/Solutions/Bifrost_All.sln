@@ -34,8 +34,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bifrost.Content.Specs", "..
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bifrost.Web.Specs", "..\Bifrost.Web.Specs\Bifrost.Web.Specs.csproj", "{C2C2138E-2617-43D6-B552-E0D57FDA7CEA}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bifrost.RavenDB", "..\Bifrost.RavenDB\Bifrost.RavenDB.csproj", "{CB331526-55BF-4887-A0D8-EE721B7FCDD7}"
-EndProject
+#Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bifrost.RavenDB", "..\Bifrost.RavenDB\Bifrost.RavenDB.csproj", "{CB331526-55BF-4887-A0D8-EE721B7FCDD7}"
+#EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bifrost.RavenDB.Specs", "..\Bifrost.RavenDB.Specs\Bifrost.RavenDB.Specs.csproj", "{58448401-0B31-48D6-B6EA-D76EF501F902}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bifrost.NHibernate.Specs", "..\Bifrost.NHibernate.Specs\Bifrost.NHibernate.Specs.csproj", "{60F8A99E-A57B-4776-B2DF-76347F0F4DF9}"
