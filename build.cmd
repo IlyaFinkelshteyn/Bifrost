@@ -15,8 +15,8 @@ IF EXIST %CACHED_NUGET% goto copynuget
 echo Downloading latest version of NuGet.exe...
 rem IF NOT EXIST %LocalAppData%\NuGet md %LocalAppData%\NuGet
 @powershell -NoProfile -ExecutionPolicy unrestricted -Command "$ProgressPreference = 'SilentlyContinue'; Invoke-WebRequest 'https://dist.nuget.org/win-x86-commandline/latest/nuget.exe' -OutFile '%CACHED_NUGET%'"
-rem @powershell -NoProfile -ExecutionPolicy unrestricted -Command "$ProgressPreference = 'SilentlyContinue'; Invoke-WebRequest 'https://dist.nuget.org/win-x86-commandline/latest/nuget.exe' -OutFile '%NUGET_DIR%'"
-rem @powershell -NoProfile -ExecutionPolicy unrestricted -Command "$ProgressPreference = 'SilentlyContinue'; Invoke-WebRequest 'https://dist.nuget.org/win-x86-commandline/latest/nuget.exe' -OutFile '%APPVEYOR_BUILD_FOLDER%'"
+@powershell -NoProfile -ExecutionPolicy unrestricted -Command "$ProgressPreference = 'SilentlyContinue'; Invoke-WebRequest 'https://dist.nuget.org/win-x86-commandline/latest/nuget.exe' -OutFile '%NUGET_DIR%'"
+@powershell -NoProfile -ExecutionPolicy unrestricted -Command "$ProgressPreference = 'SilentlyContinue'; Invoke-WebRequest 'https://dist.nuget.org/win-x86-commandline/latest/nuget.exe' -OutFile '%APPVEYOR_BUILD_FOLDER%'"
 
 
 :copynuget
@@ -32,9 +32,9 @@ pushd %~dp0
 
 rem %NUGET_DIR%\NuGet.exe update -self
 
-NuGet.exe install FAKE -ConfigFile %NUGET_DIR%\Nuget.Config -OutputDirectory %PACKAGE_DIR% -ExcludeVersion -Version 4.16.1
-NuGet.exe install FSharp.Data -ConfigFile %NUGET_DIR%\Nuget.Config -OutputDirectory %PACKAGE_DIR%\FAKE -ExcludeVersion -Version 2.3.2
-NuGet.exe install GitVersion.CommandLine -ConfigFile %NUGET_DIR%\Nuget.Config -OutputDirectory %PACKAGE_DIR% -ExcludeVersion -Version 3.6.5
+%NUGET_DIR%\NuGet.exe install FAKE -ConfigFile %NUGET_DIR%\Nuget.Config -OutputDirectory %PACKAGE_DIR% -ExcludeVersion -Version 4.16.1
+%NUGET_DIR%\NuGet.exe install FSharp.Data -ConfigFile %NUGET_DIR%\Nuget.Config -OutputDirectory %PACKAGE_DIR%\FAKE -ExcludeVersion -Version 2.3.2
+%NUGET_DIR%\NuGet.exe install GitVersion.CommandLine -ConfigFile %NUGET_DIR%\Nuget.Config -OutputDirectory %PACKAGE_DIR% -ExcludeVersion -Version 3.6.5
 
 rem cls
 
