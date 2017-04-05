@@ -2,6 +2,8 @@ version: 1.1.0-{build}
 pull_requests:
   do_not_increment_build_number: true
 image: Visual Studio 2017
+install:
+- '"C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\Tools\VsDevCmd.bat"'
 build_script:
 - cmd: .\build.cmd All
 test:
